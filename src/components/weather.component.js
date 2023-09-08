@@ -93,9 +93,15 @@ export default class Weather extends Component {
                                               case "wind":return <div key={indexkey}><h3> km/h {parseFloat(this.state.content.wind.speed*3,6)}  : ⵜⴰⵔⵓⵍⴰ ⵏ ⴰⵣⵡⵓ سرعة الرياح  </h3>
                                               <h3 > ⴹⴰⵔⴰⴵⴰ : {this.state.content.wind.deg}  {itijah} : بدرجة   </h3></div>
                                               case "sys":
-                                                return <div key={indexkey}><h3> {  moment(Number.parseInt(this.state.content.sys.sunset)).utcOffset('+01:00')
+                                                return <div key={indexkey}><h3> {  moment(Number.parseInt(this.state.content.sys.sunrise+"000")).utcOffset('+01:00')
                                                 .format('hh:mm ')}  ⴰ ⵏⴿⴰⵔ ⵏ ⵜⴰⴼⵓⵢⵜ  :شروق الشمس  </h3>
-                                              <h3>  .غروبها في علي ومسكورⴰⵖⵍⴰⵢ ⵏ ⵜⴰⴼⵓⵢⵜ  </h3>
+                                            
+
+                                              <h3> { new Intl.DateTimeFormat('ma-MA', {year: 'numeric', month: '2-digit',day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit'}).format(this.state.content.sys.sunset+"000")
+                                               }     .غروبهاⴰⵖⵍⴰⵢ ⵏ ⵜⴰⴼⵓⵢⵜ  </h3> 
+                                              
+
+
                                                         
                                               </div>
                                               case "clouds":  return <div key={indexkey}><h3> % {parseInt(this.state.content.clouds.all)}  :نسبة السحوب في السماء   </h3>

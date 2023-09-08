@@ -1,8 +1,9 @@
 import React, { Component } from "react";
-import { Routes , Route, Link  } from "react-router-dom";
+import { Router,Routes , Route, Link  } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import AuthService from "./services/auth.service";
+ 
 import Login from "./components/login.component";
 import Register from "./components/register.component";
 import Home from "./components/home.component";
@@ -11,6 +12,9 @@ import BoardUser from "./components/board-user.component";
 import BoardModerator from "./components/board-moderator.component";
 import BoardAdmin from "./components/board-admin.component";
 import Cours from "./components/cours.component";
+import Calculatrice from "./components/Calculatrice/Calculatrice"
+
+import Compteur from "./services/Compteur"
 import jwt_decode from "jwt-decode";
 
 class App extends Component {
@@ -32,13 +36,17 @@ class App extends Component {
    //const user = jwt_decode(AuthService.getCurrentUser()).sub;
     const user = AuthService.getCurrentUser();
     if (user!=null) {
+
       this.setState({
         currentUser: jwt_decode(AuthService.getCurrentUser()).sub,
-     showModeratorBoard: jwt_decode(AuthService.getCurrentUser()).roles.includes("check"),
-     showAdminBoard: jwt_decode(AuthService.getCurrentUser()).sub.includes("3amel"),
+        showModeratorBoard: jwt_decode(AuthService.getCurrentUser()).roles.includes("check"),
+        showAdminBoard: jwt_decode(AuthService.getCurrentUser()).sub.includes("3amel"),
       });
     }
   }
+  //
+  
+
   logOut() {
     AuthService.logout();
   }
@@ -92,50 +100,64 @@ class App extends Component {
               </li>
               <li className="nav-item">
               <Link to={"/cours"} className="nav-link">
-              Cours
+              ⴰⵍⵎⴰⴷ (Cours)
               </Link>
+
                </li>
+               <li className="nav-item">
+              
+              <Link to={"/user"} className="nav-link">
+              ⵍⵉⵙⵜⴰ(Users)
+              </Link>
+              </li>
               <li className="nav-item">
-                <a href="/logout" className="nav-link" onClick={this.logOut}>
+              
+                <a href="/logout" className="nav-link"  onClick={this.logOut}>
                 ⴼⴼⴰⵖ
                 </a>
               </li>
+              
             </div>
           ) : (
             <div className="navbar-nav ml-auto">
-             {/* <li className="nav-item">
-                <Link to={"/login"} className="nav-link">
-                ⴽⵊⴰⵎ
-                </Link>
-              </li>
-              */}
-              
+                         
               <li className="nav-item">
                 <Link to={"/register"} className="nav-link">
                 ⵙⴰⵊⴰⵍ/registre/تسجيل
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link to={"/Calculatrice"} className="nav-link">
+                ⴰⵙⵙⵉⴷⵏ / Calculatrice
                 </Link>
               </li>
             </div>
           )}
         </nav>
         <div className="container mt-3">
+      
           <Routes >
-           
-            <Route exact path={"/"} element={<Home/>} /> 
+           <Route exact path={"/ⵙⵙⵉⴷⵏ"} element={<Compteur/>}></Route>  
+           <Route exact path={"/Calculatrice"} element={<Calculatrice/>}></Route>
+           <Route exact path={"/"} element={<Home/>} /> 
             <Route exact path="/login" element={<Login /> }/>
             <Route exact path="/register" element={<Register />} />
             <Route exact path="/cours" element={<Cours />} />
             <Route exact path="/profile" element={<Profile/>} />
-            <Route path="/user" element={<BoardUser/>} />
+            <Route exact path="/user" element={<BoardUser/>} />
             <Route path="/mod" element={<BoardModerator/>} />
            <Route path="/admin" element={<BoardAdmin/>} />
-           <Route path="/logout" element={<Home/>} />
+           <Route path="/logout" element={<Login/>} />
+          
           </Routes >
+          
         </div>
       </div>
     );
   }
 }
+
+
 export default App;
 
 

@@ -50,17 +50,19 @@ const required = value => {
     });
     this.form.validateAll();
     if (this.checkBtn.context._errors.length === 0) {
-      AuthService.login(this.state.username, this.state.password).then(
-        () => {
+      AuthService.login(this.state.username, this.state.password)
+      .then(() => {
           
-           //  const navigate = useNavigate();
-         // navigate("/profile");
+        setTimeout(()=>{ window.open('/profile',"_self")},500);
+
             <div><Link to='/profile'  /> Profile</div> 
-         //navigate("/profile");
-          //navigate(-1);
-         // this.props.history.push("/profile");
-         
-         window.open('/profile');//.reload();
+            
+           //  window.open('/profile',"_self").then(setTimeout(()=>{window.close("/login")},500)).bind(()=>this);
+              
+              
+             
+             
+        
           }
          
         ,
@@ -76,7 +78,7 @@ const required = value => {
             message: resMessage
           });
         }
-      )
+      ).catch()
       //.next();
     } else {
       this.setState({
@@ -116,6 +118,11 @@ const required = value => {
                 onChange={this.onChangePassword}
                 validations={[required]}
               />
+            <input type="hidden"
+		name="${_csrf.parameterName}"
+		value="${_csrf.token}"/>
+
+
             </div>
             <div className="form-group">
               <button

@@ -65,18 +65,16 @@ getPublicContent() {
         height: '100%',
         width: '100%', 
        }} */>
-      <h1 style={{color:"darkblue"}} >ⴰⵣⵓⵍ ⴼⵍⵍⴰⵡⵍ ⴳ ⵓ ⴰⵖⴱⴷⵉⵍ ⵏ ⵜⴰⵏⴰ Aghabdil n wamman n Tana </h1>
+      <h1 style={{color:"darkblue"} } >ⴰⵣⵓⵍ ⴼⵍⵍⴰⵡⵍ ⴳ ⵓ ⴰⵖⴱⴷⵉⵍ ⵏ ⵜⴰⵏⴰ Aghabdil n wamman n Tana </h1>
 
-        <Weather></Weather>
+        <Weather ></Weather>
 
       <hr />
-        <div dangerouslySetInnerHTML={{ __html: this.state.content }} />
+        <div dangerouslySetInnerHTML={{ __html: this.state.content  }}   />
        
-        <img src="https://www.hespress.com/files/2017/09/tinghir1_680802121.jpg"  />;
-        <img src="https://image.over-blog.com/8PW545ny411vVSc9zuplP6RTQFo=/fit-in/1020x765/filters:no_upscale()/idata%2F4864080%2FRaid-TANA%2F181-5.JPG"  />;
-
-
-        <img src="https://image.over-blog.com/mKj15d2_Cn7hp8PoGDnZJIYq-Co=/fit-in/1020x765/filters:no_upscale()/idata%2F4864080%2FRaid-TANA%2F184.JPG"  />;
+        <img src="https://www.hespress.com/files/2017/09/tinghir1_680802121.jpg" style={{width:"33%",height:"33%"}} />;
+        <img src="https://image.over-blog.com/8PW545ny411vVSc9zuplP6RTQFo=/fit-in/1020x765/filters:no_upscale()/idata%2F4864080%2FRaid-TANA%2F181-5.JPG"  style={{width:"33%",height:"33%"}} />;
+        <img src="https://image.over-blog.com/mKj15d2_Cn7hp8PoGDnZJIYq-Co=/fit-in/1020x765/filters:no_upscale()/idata%2F4864080%2FRaid-TANA%2F184.JPG" style={{width:"33%",height:"33%"}} />;
         
         <div className="error">{ this.state.error}</div>
       </div>
