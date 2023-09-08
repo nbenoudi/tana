@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/tana/static/css/main.eef82bc9.css",
-    "main.js": "/tana/static/js/main.812faf11.js",
+    "main.css": "/tana/static/css/main.6e7d496f.css",
+    "main.js": "/tana/static/js/main.f59e3015.js",
     "index.html": "/tana/index.html",
-    "main.eef82bc9.css.map": "/tana/static/css/main.eef82bc9.css.map",
-    "main.812faf11.js.map": "/tana/static/js/main.812faf11.js.map"
+    "main.6e7d496f.css.map": "/tana/static/css/main.6e7d496f.css.map",
+    "main.f59e3015.js.map": "/tana/static/js/main.f59e3015.js.map"
   },
   "entrypoints": [
-    "static/css/main.eef82bc9.css",
-    "static/js/main.812faf11.js"
+    "static/css/main.6e7d496f.css",
+    "static/js/main.f59e3015.js"
   ]
 }
