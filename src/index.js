@@ -7,7 +7,9 @@ import App from "./App";
 
 ReactDOM.render( 
 
-  <BrowserRouter>
+
+
+  <BrowserRouter basename={"/tana"} >
    <App />
    
 </BrowserRouter>,

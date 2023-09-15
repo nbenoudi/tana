@@ -57,7 +57,7 @@ export default class Weather extends Component {
     
       return (
           <div>
-          <h3> {  Date(Number.parseInt((this.state.content.dt)))}  حالة الطقس بتانة يوم</h3>
+          <h3>ⵍⵃⴰⵍⵜ ⵏ ⵍⵊⴰⵡ ⴰⵙⵙⴰ  {  Date(Number.parseInt((this.state.content.dt)))}  حالة الطقس بتانة يوم</h3>
           
        {
        
@@ -82,33 +82,35 @@ export default class Weather extends Component {
 
                                           switch (lat) {
                                               case "main":
-                                              return <div  key={indexkey}  ><h3> C° {parseInt(this.state.content.main.temp-273.15)} :درجة الحرارة  </h3>
-                                              <h3> C°{parseInt(this.state.content.main.feels_like-273.15)} : تحس ان درجة الحرارةهي </h3>
-                                            <h3> C°{parseInt(this.state.content.main.temp_min-273.15)}:درجة الحرارة السفلى  </h3>
-                                            <h3> C°{parseInt(this.state.content.main.temp_max-273.15)}:درجة الحرارة العليا  </h3>
-                                            <h3> hPa {parseInt(this.state.content.main.pressure)}الضغط الجوي: ب هكتوبسكال</h3>
-                                            <h3> % {this.state.content.main.humidity}:نسبة الرطوبة</h3>
+                                              return <div  key={indexkey}  > 
+                                              <h3> ⴰⵛⴰⵔⵔⵉⴺ ⵏ ⵍⴰⵀⵎⴰ ⵏ ⵡⴰⵙⵙⴰ ⵙ C° {parseInt(this.state.content.main.temp-273.15) }  :درجة الحرارة اليوم  </h3>
+                                              <h3> ⴰⵔⵉⵙ ⵜⵃⴰⵙⵙⴰⴷ ⵙ C°{parseInt(this.state.content.main.feels_like-273.15)} : و تحس انها </h3>
+                                            <h3> ⵍⵃⴰⴷ ⵏⵙ ⴰⵎⴰⵊⵢⴰⴽ ⵙ C°{parseInt(this.state.content.main.temp_max-273.15)}:درجة الحرارة العليا  </h3>
+                                            <h3>ⵍⵃⴰⴷ ⵏⵙ ⴰⵎⴰⵣⴷⴰⵔ ⵙ C°{parseInt(this.state.content.main.temp_min-273.15)}:درجة الحرارة السفلى  </h3>
+                                            
+                                            <h3> ⵜⵉⵣⵎⵉ ⵏ ⵓⵣⵡⵓ ⵙ hPa {parseInt(this.state.content.main.pressure)}الضغط الجوي: ب هكتوبسكال</h3>
+                                            <h3>ⵓⵎⵓⵖ ⵏ ⵡⵓⵣⵡⵓ ⵙ % {this.state.content.main.humidity}:نسبة الرطوبة</h3>
                                               
                                               </div>
-                                              case "wind":return <div key={indexkey}><h3> km/h {parseFloat(this.state.content.wind.speed*3,6)}  : ⵜⴰⵔⵓⵍⴰ ⵏ ⴰⵣⵡⵓ سرعة الرياح  </h3>
+                                              case "wind":return <div key={indexkey}><h3> ⵜⴰⵔⵓⵍⴰ ⵏ ⴰⵣⵡⵓ ⵙ km/h {parseFloat(this.state.content.wind.speed*3,6)}  :  سرعة الرياح  </h3>
                                               <h3 > ⴹⴰⵔⴰⴵⴰ : {this.state.content.wind.deg}  {itijah} : بدرجة   </h3></div>
                                               case "sys":
-                                                return <div key={indexkey}><h3> {  moment(Number.parseInt(this.state.content.sys.sunrise+"000")).utcOffset('+01:00')
-                                                .format('hh:mm ')}  ⴰ ⵏⴿⴰⵔ ⵏ ⵜⴰⴼⵓⵢⵜ  :شروق الشمس  </h3>
+                                                return <div key={indexkey}><h3>  ⴰ ⵏⴿⴰⵔ ⵏ ⵜⴰⴼⵓⵢⵜ {  moment(Number.parseInt(this.state.content.sys.sunrise+"000")).utcOffset('+01:00')
+                                                .format('hh:mm ')}  :شروق الشمس  </h3>
                                             
 
-                                              <h3> { new Intl.DateTimeFormat('ma-MA', {year: 'numeric', month: '2-digit',day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit'}).format(this.state.content.sys.sunset+"000")
-                                               }     .غروبهاⴰⵖⵍⴰⵢ ⵏ ⵜⴰⴼⵓⵢⵜ  </h3> 
+                                              <h3>ⵖⵍⴰⵢ ⵏ ⵜⴰⴼⵓⵢⵜ  { new Intl.DateTimeFormat('ma-MA', {year: 'numeric', month: '2-digit',day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit'}).format(this.state.content.sys.sunset+"000")
+                                               }     . غروبها</h3> 
                                               
 
 
                                                         
                                               </div>
-                                              case "clouds":  return <div key={indexkey}><h3> % {parseInt(this.state.content.clouds.all)}  :نسبة السحوب في السماء   </h3>
+                                              case "clouds":  return <div key={indexkey}><h3> ⵛⵃⴰⵍ ⵏ ⵉⵙⵉⴴⵏⴰⵡ ⴳ ⵉⵊⵏⵏⴰ % {parseInt(this.state.content.clouds.all)}  :نسبة السحوب في السماء   </h3>
                                              </div>
-                                              case "rain":  return <div key={indexkey}><h3> % {this.state.content.rain.toString(3+"h")}  الأمطار المسجلة خلال 3 ساعة من الزمن   </h3>
+                                              case "rain":  return <div key={indexkey}><h3>ⴰⵏⵣⴰⵔ  {this.state.content.rain.toString("3h")}  الأمطار المسجلة خلال 3 ساعة من الزمن   </h3>
                                               </div>
-                                              case "snow":  return <div key={indexkey}><h3> % {this.state.content.snow.toString(3+"h")}  الثلوج المسجلة خلال3 ساعة من الزمن   </h3>
+                                              case "snow":  return <div key={indexkey}><h3> ⴰⵜⴼⴻⵍ {this.state.content.snow.toString(3+"h")}  الثلوج المسجلة خلال3 ساعة من الزمن   </h3>
                                               </div>
                                                
                                               case "weather":return <div key={indexkey}>  <img src={"http://openweathermap.org/img/wn/"+this.state.content.weather[0].icon+"@2x.png" } /> <h3>{this.state.content.weather[0].description}</h3> 

@@ -45,6 +45,7 @@ const Chacha = ({ input, setInput, answer }) => {
               className="input"
               value={answer}
               disabled
+              readOnly
             />
           </>
         )}
