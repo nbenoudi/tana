@@ -5,6 +5,7 @@ import "./App.css";
 import AuthService from "./services/auth.service";
  
 import Login from "./components/login.component";
+import Logout from "./components/Logout";
 import Register from "./components/register.component";
 import Home from "./components/home.component";
 import Profile from "./components/profile.component";
@@ -13,14 +14,13 @@ import BoardModerator from "./components/board-moderator.component";
 import BoardAdmin from "./components/board-admin.component";
 import Cours from "./components/cours.component";
 import Calculatrice from "./components/Calculatrice/Calculatrice"
-
 import Compteur from "./services/Compteur"
 import jwt_decode from "jwt-decode";
 
 class App extends Component {
   constructor(props) {
     super(props);
-    this.logOut = this.logOut.bind(this);
+    //this.logOut = this.logOut.bind(this);
     this.state = {
       showModeratorBoard: false,
       showAdminBoard: false,
@@ -47,8 +47,10 @@ class App extends Component {
   //
   
 
-  logOut() {
-    AuthService.logout();
+  handelLogOut() {
+    AuthService.logout().then(() => {
+      setTimeout(()=> window.location.replace('http://localhost:8081/tana'),300)});;
+    
   }
   render() {
 
@@ -111,11 +113,10 @@ class App extends Component {
               </Link>
               </li>
               <li className="nav-item">
-              
-                <a href="/logout" className="nav-link"  onClick={this.logOut}>
-                ⴼⴼⴰⵖ
-                </a>
-              </li>
+              <Link to={"/logout"} className="nav-link" onClick={this.handelLogOut}>
+              ⴼⴼⴰⵖ
+              </Link>
+             </li>
               
             </div>
           ) : (
@@ -147,7 +148,7 @@ class App extends Component {
             <Route exact path="/user" element={<BoardUser/>} />
             <Route path="/mod" element={<BoardModerator/>} />
            <Route path="/admin" element={<BoardAdmin/>} />
-           <Route path="/logout" element={<Login/>} />
+           <Route path="/logout" element={<Logout/>} />
           
           </Routes >
           

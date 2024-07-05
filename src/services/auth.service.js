@@ -23,8 +23,8 @@ const request = axios.create({
  
   /*POST api/auth/signin for User Login*/
 
-  login(username, password) {
-    return new Promise((resolve, reject) => {
+   login= async (username, password) =>{
+    return await new Promise((resolve, reject) => {
    //if(localStorage.getItem('access_token')!=null) verifier(token) else reject('invalid token');
   
        request
@@ -41,13 +41,18 @@ const request = axios.create({
   }
 
 
+
+
+
+
   // RemoveCurrent User
-  logout() {
+  async logout() {
     if(localStorage.getItem('access_token')!=null) { localStorage.removeItem("access_token");
     
 
     
-    axios.post("https://localhost:443/logout");}
+    await axios.post("https://localhost:443/logout");
+  }
   /*  return new Promise(resolve,reject=>{
 
 alert("DDDDDDDDDDDDDDD");
@@ -85,11 +90,11 @@ resolve(JSON.stringify(response.data));}
 
 /*POST https://localhost:8080/users for User Registration*/
 
-  register( vorname,nachname,  email, password) {
+  register= async ( vorname,nachname,  email, password)=> {
 
   
 
-    return  axios.post(API_URL + "/users",{
+    return await axios.post(API_URL + "/users",{
       nachname:nachname,
       vorname:vorname,
       email:email,
@@ -117,4 +122,4 @@ resolve(JSON.stringify(response.data));}
    
   }
 }
-export default new AuthService();
+export default  new AuthService();

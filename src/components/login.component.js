@@ -16,6 +16,7 @@ const required = value => {
   }
 };
  class Login extends Component {
+   refresh = () => window.location.reload(true);
  
   constructor(props) {
     super(props);
@@ -41,22 +42,26 @@ const required = value => {
 
   }
   handleLogin(e) {
-  e.preventDefault();
+  e.preventDefault()
     //this.props.history.push('/profile');
-    <div><Link to='/profile'  /> Profile</div> 
+ 
+
+     AuthService.login(this.state.username, this.state.password)
     this.setState({
       message: "",
       loading: true
     });
     this.form.validateAll();
     if (this.checkBtn.context._errors.length === 0) {
+
       AuthService.login(this.state.username, this.state.password)
       .then(() => {
           
-        setTimeout(()=>{ window.open('/profile',"_self")},500);
+       // setTimeout(()=>{ window.open('tana/profile',"_self")},500);
+        setTimeout(()=> window.location.replace('http://localhost:8081/tana/profile'),500);
 
-            <div><Link to='/profile'  /> Profile</div> 
-            
+           // <div><Link to='tana/profile'  /> Profile</div> 
+         
            //  window.open('/profile',"_self").then(setTimeout(()=>{window.close("/login")},500)).bind(()=>this);
               
               
