@@ -1,5 +1,7 @@
 import React, { Component } from "react";
+import WeatherList from "./Weatherfuture/WeatherList"
 import  moment from "moment";
+import { log } from "mathjs";
 export default class Weather extends Component {
 
   // State
@@ -13,12 +15,12 @@ export default class Weather extends Component {
       error: ""
     };
   }
+  
   async  componentDidMount() {
     this._isMounted = true;
-    //  getcours();
+    //  gethaln simana();
     const response = await this.getweather();
-  
- 
+   
   // Get Cours from Backend
   }
 
@@ -56,8 +58,8 @@ export default class Weather extends Component {
   render() {
     
       return (
-          <div>
-          <h3>ⵍⵃⴰⵍⵜ ⵏ ⵍⵊⴰⵡ ⴰⵙⵙⴰ  {  Date(Number.parseInt((this.state.content.dt)))}  حالة الطقس بتانة يوم</h3>
+          <div className="ui inverted table">
+          <h3> ⵍⵃⴰⵍⵜ ⵏ ⵍⵊⴰⵡ ⴰⵙⵙⴰ <b style={{color:"red"}}>{ moment(Date(Number.parseInt((this.state.content.dt)))).format("DD/MM/YYYY")}</b>   حالة الطقس بقصر تانة أسول تنغير ليومه</h3>
           
        {
        
@@ -82,8 +84,8 @@ export default class Weather extends Component {
 
                                           switch (lat) {
                                               case "main":
-                                              return <div  key={indexkey}  > 
-                                              <h3> ⴰⵛⴰⵔⵔⵉⴺ ⵏ ⵍⴰⵀⵎⴰ ⵏ ⵡⴰⵙⵙⴰ ⵙ C° {parseInt(this.state.content.main.temp-273.15) }  :درجة الحرارة اليوم  </h3>
+                                              return <div  key={indexkey}> 
+                                              <h3> ⴰⵛⴰⵔⵔⵉⴺ ⵏ ⵍⴰⵀⵎⴰ ⵏ ⵡⴰⵙⵙⴰ ⵙ C° {parseInt(this.state.content.main.temp-273.15) }  :درجة حرارة اليوم  </h3>
                                               <h3> ⴰⵔⵉⵙ ⵜⵃⴰⵙⵙⴰⴷ ⵙ C°{parseInt(this.state.content.main.feels_like-273.15)} : و تحس انها </h3>
                                             <h3> ⵍⵃⴰⴷ ⵏⵙ ⴰⵎⴰⵊⵢⴰⴽ ⵙ C°{parseInt(this.state.content.main.temp_max-273.15)}:درجة الحرارة العليا  </h3>
                                             <h3>ⵍⵃⴰⴷ ⵏⵙ ⴰⵎⴰⵣⴷⴰⵔ ⵙ C°{parseInt(this.state.content.main.temp_min-273.15)}:درجة الحرارة السفلى  </h3>
@@ -126,10 +128,10 @@ export default class Weather extends Component {
        }
           
        
-             
+        
        <div style={{color:"red"}} ><h3>{this.state.error} </h3></div> 
      
-      
+       <WeatherList></WeatherList>
       
       </div>
     );

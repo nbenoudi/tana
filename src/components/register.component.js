@@ -103,7 +103,7 @@ export default class Register extends Component {
       ).then(
         response => {
           this.setState({
-            message: response.data.message,
+            message:  response.data.message,
             successful: true
           });
         },
@@ -111,7 +111,7 @@ export default class Register extends Component {
           const resMessage =(error.response && error.response.data &&   error.response.data.message) || error.message || error.toString();
           this.setState({
             successful: false,
-            message: resMessage
+            message: "المرجوا الإتصال بصاحب الموقع لتلبية طلبكم, ⵓⵀⵓ ⴰⵜⴰ ⵎⴰⵣⵉⵔⵜ ⵓⵔ ⴷⴰⵏ ⵜⵙⴰⵊⴰⵍ ⴰⵎⴰⵜⴰ ⵖⵓⵔⵖ oho ata mazirt our dan tsajal amata ghourghe "+resMessage
           });
           
         }

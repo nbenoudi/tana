@@ -131,8 +131,9 @@ function Calculatrice() {
   };
 
   return (
-    <>
+    <div> <h1>ⵍⴰⵃⵙⴰⴱ ⵏ ⵜⵉⵎⵎⵓⵣⵖⴰ </h1>
       <div className="container">
+       
         <div className="main">
           <Chacha input={input} setInput={setInput} answer={answer} />
           <Buttons
@@ -144,7 +145,7 @@ function Calculatrice() {
           />
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

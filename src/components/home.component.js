@@ -61,7 +61,7 @@ getPublicContent() {
   render() {
     return (
       <div>
-      <h1 style={{color:"darkblue"}} className="title"  >ⴰⵣⵓⵍ ⴼⵍⵍⴰⵡⵍ ⴳ ⵓ ⴰⵖⴱⴷⵉⵍ ⵏ ⵜⴰⵏⴰ Aghabdil n wamman n Tana </h1>
+      <h1 className="ui huge header" content="ui container center border 3" >ⴰⵣⵓⵍ ⴼⵍⵍⴰⵡⵍ ⵉⵎⴷⴷⵓⴽⴰⵍ ⵏ ⵜⴰⵔⵡⴰ ⵏ ⵜⴰⵏⴰ مرحبا بكم اعزائي الكرام ابناء تانة </h1>
 
         <Weather ></Weather>
 
