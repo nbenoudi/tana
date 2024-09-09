@@ -13,27 +13,25 @@ this.setState({list:s})
 render() {
 
     return(
-    <div className="weather-list"> 
+    <> 
         
-         <table className="ui inverted table"><tr><td>Tassa3t</td><td>Tafouyt</td><td>Azyou</td></tr> <tbody>
-         {
-            
-        this.state.list.map((item,index)=>
+         <table className="ui striped green  table"><thead> <tr> <th>Tassa3t</th><th>Tafouyt</th><th>Azwou</th></tr></thead>  
+         
+         <tbody>
+                 {
+                 this.state.list.map((item,index)=>
         
                       
                  <tr key={index}>
                      <td>{  ("0" + new Date(item.dt_txt).getHours()).slice(-2)+":00"} </td>
                     <td>{(parseInt(item.main.temp)-273.15).toFixed()} C°</td>
                     <td>{item.wind.speed} km/h</td>
-                </tr> 
-            
-        
-    
-    )}
+                </tr>)
+                }
     </tbody>  
 
     </table>
-     </div>
+     </>
 )
 
 }

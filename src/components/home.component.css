@@ -1,13 +1,10 @@
  .title {
    
-    border-width: 4;
-    border-color: "#20232a";
+    border-width:6;
     border-radius: 20;
-    background-color: "#61dafb";
     color: "#20232a";
     text-align: "center";
     font-size: 15;
-    font-weight: "bold";
    
   }
 

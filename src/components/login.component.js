@@ -1,11 +1,10 @@
 import React, { Component } from "react";
 import { Link,useNavigate } from "react-router-dom";
-
-
 import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
 import AuthService from "../services/auth.service";
+import { wait } from "@testing-library/user-event/dist/utils";
 const required = value => {
   if (!value) {
     return (
@@ -15,6 +14,7 @@ const required = value => {
     );
   }
 };
+
  class Login extends Component {
    refresh = () => window.location.reload(true);
  
@@ -26,10 +26,12 @@ const required = value => {
     this.state = {
       username: "",
       password: "",
+      showPassword:false,
       loading: false,
       message: ""
     };
   }
+
   onChangeUsername(e) {
     this.setState({
       username: e.target.value
@@ -58,7 +60,12 @@ const required = value => {
       .then(() => {
           
        // setTimeout(()=>{ window.open('tana/profile',"_self")},500);
+            
+       //window.localStorage.getItem("access_token") && setTimeout(()=> window.location.replace('http://localhost:8081/tana/profile?Authorization=Bearer '+(window.localStorage.getItem("access_token")).slice(1)),500);
+
         setTimeout(()=> window.location.replace('http://localhost:8081/tana/profile'),500);
+
+
 
            // <div><Link to='tana/profile'  /> Profile</div> 
          
@@ -83,7 +90,7 @@ const required = value => {
             message: resMessage
           });
         }
-      ).catch()
+      ).catch((error)=>alert(error))
       //.next();
     } else {
       this.setState({
@@ -112,17 +119,20 @@ const required = value => {
                 onChange={this.onChangeUsername}
                 validations={[required]}
               />
+
             </div>
             <div className="form-group">
               <label htmlFor="password">ⵜⴰⵙⴰⵔⵓⵜ كلمة السر password </label>
               <Input
-                type="password"
+                type={this.state.showPassword ? "text" : "password"} 
                 className="form-control"
                 name="password"
                 value={this.state.password}
                 onChange={this.onChangePassword}
                 validations={[required]}
               />
+                                   
+             
             <input type="hidden"
 		name="${_csrf.parameterName}"
 		value="${_csrf.token}"/>
@@ -130,6 +140,16 @@ const required = value => {
 
             </div>
             <div className="form-group">
+            <button
+                        type="button"
+                        className=" btn-primary "
+                        onClick={() => {
+                         
+                          this.setState({showPassword:!this.state.showPassword});
+                        }}
+                      >
+                        {this.state.showPassword ? "ⴼⴼⴰⵔ" : "ⵙⴱⴰⵢⵏ"}
+              </button>
               <button
                 className="btn btn-primary btn-block"
                 disabled={this.state.loading}
@@ -139,6 +159,8 @@ const required = value => {
                 )}
                 <span>ⴽⵊⴰⵎ /دخول/Enter </span>
               </button>
+             
+            
             </div>
             {this.state.message && (
               <div className="form-group">

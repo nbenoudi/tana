@@ -60,12 +60,14 @@ getPublicContent() {
  }
   render() {
     return (
-      <div>
-      <h1 className="ui huge header" content="ui container center border 3" >ⴰⵣⵓⵍ ⴼⵍⵍⴰⵡⵍ ⵉⵎⴷⴷⵓⴽⴰⵍ ⵏ ⵜⴰⵔⵡⴰ ⵏ ⵜⴰⵏⴰ مرحبا بكم اعزائي الكرام ابناء تانة </h1>
+      <div className="ui center ">
+
+
+      <h1 className="ui title header" > ⴰⵣⵓⵍ ⴼⵍⵍⴰⵡⵍ ⵉⵎⴷⴷⵓⴽⴰⵍ  مرحبا بكم اعزائي الكرام   </h1>
 
         <Weather ></Weather>
 
-      <hr />
+    
         <div dangerouslySetInnerHTML={{ __html: this.state.content  }}   />
        
         <img src="https://www.hespress.com/files/2017/09/tinghir1_680802121.jpg" style={{width:"33%",height:"33%"}} alt="tana"  />

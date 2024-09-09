@@ -32,9 +32,10 @@ class App extends Component {
 
 
     // Bis Später 
-    
    //const user = jwt_decode(AuthService.getCurrentUser()).sub;
     const user = AuthService.getCurrentUser();
+    document.body.style.backgroundColor = user===null?"#23395d":"#1CD4C";
+
     if (user!=null) {
 
       this.setState({
@@ -84,15 +85,7 @@ class App extends Component {
               </li>
             )}
             
-            {/* currentUser && (
-              <li className="nav-item">
-                <Link to={"/register"} className="nav-link">
-                ⵙⴰⵊⴰⵍ
-                </Link>
-              </li>
-              
-            ) */}
-          </div>
+            </div>
           {currentUser ? (
             <div className="navbar-nav ml-auto">
               <li className="nav-item">
@@ -135,7 +128,7 @@ class App extends Component {
             </div>
           )}
         </nav>
-        <div className="container mt-3">
+        <div className="container  mt-3">
       
           <Routes >
            <Route exact path={"/ⵙⵙⵉⴷⵏ"} element={<Compteur/>}></Route>  
@@ -160,30 +153,3 @@ class App extends Component {
 
 
 export default App;
-
-
-/*
-import { useEffect, useState } from 'react';
-import './App.css';
-function App() {
-  const makeAPICall = async () => {
-    try {
-      const response = await fetch('http://localhost:8080/', {mode:'cors'});
-      const data = await response.json();
-      console.log({ data })
-    }
-    catch (e) {
-      console.log(e)
-    }
-  }
-  useEffect(() => {
-    makeAPICall();
-  }, [])
-  return (
-    <div className="App">
-      <h1>React Cors Guide</h1>
-    </div>
-  );
-}
-export default App;
-*/
